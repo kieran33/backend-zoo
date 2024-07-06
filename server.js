@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect("mongodb+srv://admin:hTBa16624zD2tURV@clusterzoo.efttbgr.mongodb.net/?retryWrites=true&w=majority&appName=ClusterZoo");
 
 const app = express();
 const port = 3002;
@@ -137,11 +137,11 @@ if (process.env.JAWSDB_URL) {
 }*/
 
 const db = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER, // remplacez par votre utilisateur
-    password: process.env.PASSWORD, // remplacez par votre mot de passe
-    database: process.env.DATABASE, // remplacez par le nom de votre base de données
-    port: process.env.PORT
+    host: "sql.freedb.tech",
+    user: "freedb_ADMIN", // remplacez par votre utilisateur
+    password: "84$YfasfZvT5Vqa", // remplacez par votre mot de passe
+    database: "freedb_Zooooooooo", // remplacez par le nom de votre base de données
+    port: 3306
     // Paramètres de connexion MySQL
 });
 
