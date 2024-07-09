@@ -136,11 +136,19 @@ if (process.env.JAWSDB_URL) {
     });
 }*/
 
+/*const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root', // remplacez par votre utilisateur
+    password: '', // remplacez par votre mot de passe
+    database: 'zoo' // remplacez par le nom de votre base de données
+    // Paramètres de connexion MySQL
+});*/
+
 const db = mysql.createConnection({
-    host: "sql.freedb.tech",
-    user: "freedb_ADMIN", // remplacez par votre utilisateur
-    password: "84$YfasfZvT5Vqa", // remplacez par votre mot de passe
-    database: "freedb_Zooooooooo", // remplacez par le nom de votre base de données
+    host: "pro.freedb.tech",
+    user: "adminZoo", // remplacez par votre utilisateur
+    password: "!5AZBUMyHW83Hpc", // remplacez par votre mot de passe
+    database: "zooEcf", // remplacez par le nom de votre base de données
     port: 3306
     // Paramètres de connexion MySQL
 });
@@ -332,11 +340,9 @@ app.post("/connexion", (req, res) => {
                     const utilisateur = results[0];
                     bcrypt.compare(utilisateur.mot_de_passe, hash, (err, result) => {
                         if (result) {
-
                             const token = jwt.sign({ utilisateur_id: utilisateur.id, nom_utilisateur: utilisateur.nom_utilisateur }, process.env.JWT_SECRET, {
                                 expiresIn: "24h"
                             })
-
                             res.status(200).json({ success: true, message: "connexion réussis", role: utilisateur.role, token });
                         } else {
                             console.log(result)
@@ -350,11 +356,9 @@ app.post("/connexion", (req, res) => {
             const utilisateur = results[0];
             bcrypt.compare(mot_de_passe, utilisateur.mot_de_passe, (err, result) => {
                 if (result) {
-
                     const token = jwt.sign({ utilisateur_id: utilisateur.id, nom_utilisateur: utilisateur.nom_utilisateur }, process.env.JWT_SECRET, {
                         expiresIn: "24h"
                     })
-
                     res.status(200).json({ success: true, message: "connexion réussis", role: utilisateur.role, token });
                 } else {
                     console.log(result)
